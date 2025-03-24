@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="8dp">
+
+    <TextView
+        android:id="@+id/txtNama"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textStyle="bold"
+        android:textSize="16sp"
+        android:text="Nama Donatur" />
+
+    <TextView
+        android:id="@+id/txtNominal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Nominal Donasi"
+        android:textSize="14sp" />
+
+    <TextView
+        android:id="@+id/txtPesan"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Pesan untuk Penerima"
+        android:textSize="12sp"
+        android:textColor="#666666"/>
+</LinearLayout>

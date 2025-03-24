@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="20dp"
+        android:gravity="center_horizontal">
+
+        <!-- Judul -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Daftar Pengguna Baru"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:gravity="center"
+            android:layout_marginBottom="5dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Buat Akun untuk Berlangganan"
+            android:textSize="14sp"
+            android:gravity="center"
+            android:layout_marginBottom="20dp"/>
+
+        <!-- Input Username -->
+        <EditText
+            android:id="@+id/etUsername"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Username"
+            android:drawableStart="@android:drawable/ic_menu_edit"
+            android:padding="10dp"
+            android:background="@drawable/input_field"
+            android:layout_marginBottom="10dp"/>
+
+        <!-- Input Email -->
+        <EditText
+            android:id="@+id/etEmail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Email"
+            android:drawableStart="@android:drawable/ic_menu_send"
+            android:inputType="textEmailAddress"
+            android:padding="10dp"
+            android:background="@drawable/input_field"
+            android:layout_marginBottom="10dp"/>
+
+        <!-- Input Phone -->
+        <EditText
+            android:id="@+id/etPhone"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Phone"
+            android:drawableStart="@android:drawable/ic_menu_call"
+            android:inputType="phone"
+            android:padding="10dp"
+            android:background="@drawable/input_field"
+            android:layout_marginBottom="10dp"/>
+
+        <!-- Input Password -->
+        <EditText
+            android:id="@+id/etPassword"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Password"
+            android:drawableStart="@android:drawable/ic_lock_lock"
+            android:inputType="textPassword"
+            android:padding="10dp"
+            android:background="@drawable/input_field"
+            android:layout_marginBottom="10dp"/>
+
+        <!-- Input Confirm Password -->
+        <EditText
+            android:id="@+id/etConfirmPassword"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Confirm Password"
+            android:drawableStart="@android:drawable/ic_lock_lock"
+            android:inputType="textPassword"
+            android:padding="10dp"
+            android:background="@drawable/input_field"
+            android:layout_marginBottom="20dp"/>
+
+        <!-- Tombol Buat Akun -->
+        <Button
+            android:id="@+id/btnRegister"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="BUAT AKUN"
+            android:backgroundTint="@color/blue"
+            android:textColor="@android:color/white"
+            android:padding="12dp"
+            android:textStyle="bold"/>
+
+        <!-- Link ke Halaman Login -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Sudah Punya Akun? Masuk"
+            android:textSize="14sp"
+            android:textColor="@color/blue"
+            android:layout_marginTop="15dp"
+            android:gravity="center"
+            android:id="@+id/tvLogin"/>
+
+    </LinearLayout>
+</ScrollView>

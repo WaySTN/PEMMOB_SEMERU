@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <!-- Input Nama Donatur -->
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Nama Donatur" />
+    <EditText
+        android:id="@+id/edtNama"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Masukkan Nama" />
+
+    <!-- Input Email -->
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Email" />
+    <EditText
+        android:id="@+id/edtEmail"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Masukkan Email"
+        android:inputType="textEmailAddress" />
+
+    <!-- Input Nominal Donasi -->
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Nominal Donasi" />
+    <EditText
+        android:id="@+id/edtNominal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Masukkan Nominal (min Rp 10.000)"
+        android:inputType="numberDecimal" />
+
+    <!-- Pilihan Metode Pembayaran -->
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Metode Pembayaran" />
+    <Spinner
+        android:id="@+id/spinnerMetode"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <!-- Pesan untuk Penerima -->
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Pesan untuk Penerima" />
+    <EditText
+        android:id="@+id/edtPesan"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Tulis pesan (opsional)"
+        android:inputType="textMultiLine" />
+
+    <!-- Tombol CRUD -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/btnBaru"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_margin="4dp"
+            android:backgroundTint="#3574B7"
+            android:text="BARU"
+            android:textAllCaps="false"
+            android:textSize="14sp"
+            android:padding="10dp" />
+
+        <Button
+            android:id="@+id/btnSimpan"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_margin="4dp"
+            android:backgroundTint="#3574B7"
+            android:text="SIMPAN"
+            android:textAllCaps="false"
+            android:textSize="14sp"
+            android:padding="10dp" />
+
+        <Button
+            android:id="@+id/btnUbah"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_margin="4dp"
+            android:backgroundTint="#3574B7"
+            android:text="UBAH"
+            android:textAllCaps="false"
+            android:textSize="14sp"
+            android:padding="10dp" />
+
+        <Button
+            android:id="@+id/btnHapus"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_margin="4dp"
+            android:backgroundTint="#3574B7"
+            android:text="HAPUS"
+            android:textAllCaps="false"
+            android:textSize="14sp"
+            android:padding="10dp" />
+
+    </LinearLayout>
+
+    <!-- Tabel Data Donasi -->
+    <ListView
+        android:id="@+id/listDonasi"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp" />
+</LinearLayout>

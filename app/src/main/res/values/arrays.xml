@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="metode_pembayaran">
+        <item>BCA</item>
+        <item>BNI</item>
+        <item>BRI</item>
+        <item>Mandiri</item>
+        <item>BRIS</item>
+        <item>DANA</item>
+        <item>ShopeePay</item>
+
+    </string-array>
+</resources>
