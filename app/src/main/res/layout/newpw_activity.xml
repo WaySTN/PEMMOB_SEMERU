@@ -1,4 +1,3 @@
-<?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -13,56 +12,54 @@
         android:layout_gravity="center"
         android:src="@drawable/logo" />
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Buat Password Baru"
+        android:textSize="22sp"
+        android:textStyle="bold"
+        android:textColor="@color/black"
+        android:gravity="center"
+        android:layout_marginBottom="20dp"/>
+
     <EditText
-        android:id="@+id/etEmail"
+        android:id="@+id/etNewPassword"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Email or Username"
-        android:inputType="textEmailAddress"
+        android:hint="Password Baru"
+        android:inputType="textPassword"
         android:padding="12dp"
         android:background="@drawable/edittext_background"/>
 
     <EditText
-        android:id="@+id/etPassword"
+        android:id="@+id/etConfirmPassword"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Password"
+        android:hint="Konfirmasi Password"
         android:inputType="textPassword"
         android:padding="12dp"
         android:background="@drawable/edittext_background"
         android:layout_marginTop="10dp"/>
 
-    <!-- TextView untuk Lupa Password -->
-    <TextView
-        android:id="@+id/tvForgotPassword"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Lupa Password?"
-        android:textColor="@color/blue"
-        android:textSize="14sp"
-        android:layout_gravity="end"
-        android:layout_marginTop="8dp"
-        android:clickable="true"
-        android:onClick="onForgotPasswordClick"/>
-
     <Button
-        android:id="@+id/btnLogin"
+        android:id="@+id/btnUpdatePassword"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="MASUK"
+        android:text="Perbarui Password"
         android:textColor="@color/white"
         android:backgroundTint="@color/blue"
         android:padding="12dp"
         android:layout_marginTop="20dp"/>
 
     <TextView
-        android:id="@+id/tvRegister"
+        android:id="@+id/BackLogin"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Belum punya akun? Daftar"
-        android:textColor="@color/black"
-        android:textSize="14sp"
-        android:layout_gravity="center"
-        android:layout_marginTop="15dp"/>
+        android:layout_marginTop="15dp"
+        android:clickable="true"
+        android:onClick="BackLoginClick"
+        android:text="Kembali ke Login"
+        android:gravity="center"
+        android:textColor="@color/blue"
+        android:textSize="15sp" />
 </LinearLayout>
-

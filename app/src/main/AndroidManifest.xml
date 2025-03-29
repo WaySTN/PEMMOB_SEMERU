@@ -25,6 +25,8 @@
 
         <activity android:name=".MainActivity" />
         <activity android:name=".RegisterActivity" />
+        <activity android:name=".ResetPWActivity" />
+        <activity android:name=".NewPasswordActivity" />
 
     </application>
 

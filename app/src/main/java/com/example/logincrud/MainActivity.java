@@ -1,5 +1,6 @@
 package com.example.logincrud;
 
+import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
 import android.view.View;
@@ -9,7 +10,6 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.Spinner;
-import android.widget.TextView;
 import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import java.util.ArrayList;
@@ -18,7 +18,7 @@ public class MainActivity extends AppCompatActivity {
 
     EditText edtNama, edtEmail, edtNominal, edtPesan;
     Spinner spinnerMetode;
-    Button btnBaru, btnSimpan, btnUbah, btnHapus;
+    Button btnBaru, btnSimpan, btnUbah, btnHapus, btnLogout;
     ListView listDonasi;
     DatabaseManager2 dbManagerr;
     ArrayAdapter<String> adapter;
@@ -40,6 +40,7 @@ public class MainActivity extends AppCompatActivity {
         btnSimpan = findViewById(R.id.btnSimpan);
         btnUbah = findViewById(R.id.btnUbah);
         btnHapus = findViewById(R.id.btnHapus);
+        btnLogout = findViewById(R.id.btnLogout);
         listDonasi = findViewById(R.id.listDonasi);
 
         // Inisialisasi database
@@ -68,8 +69,13 @@ public class MainActivity extends AppCompatActivity {
                 return;
             }
 
-            // Konversi nominal ke integer
-            int nominal = Integer.parseInt(nominalStr);
+            int nominal;
+            try {
+                nominal = Integer.parseInt(nominalStr);
+            } catch (NumberFormatException e) {
+                Toast.makeText(this, "Nominal harus berupa angka!", Toast.LENGTH_SHORT).show();
+                return;
+            }
 
             // Validasi minimal Rp 10.000
             if (nominal < 10000) {
@@ -84,17 +90,17 @@ public class MainActivity extends AppCompatActivity {
             clearFields();
         });
 
-
         // Pilih data dari ListView
         listDonasi.setOnItemClickListener((adapterView, view, i, l) -> {
             Cursor cursor = dbManagerr.getAllData();
-            if (cursor.moveToPosition(i)) {
+            if (cursor != null && cursor.moveToPosition(i)) {
                 selectedId = cursor.getInt(0);
                 edtNama.setText(cursor.getString(1));
                 edtEmail.setText(cursor.getString(2));
                 edtNominal.setText(cursor.getString(3));
                 spinnerMetode.setSelection(metodeAdapter.getPosition(cursor.getString(4)));
                 edtPesan.setText(cursor.getString(5));
+                cursor.close(); // Tutup cursor untuk mencegah memory leak
             }
         });
 
@@ -125,27 +131,38 @@ public class MainActivity extends AppCompatActivity {
 
         // Reset input
         btnBaru.setOnClickListener(view -> clearFields());
+
+        // Tombol Logout
+        btnLogout.setOnClickListener(view -> {
+            Intent intent = new Intent(MainActivity.this, LoginActivity.class);
+            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+            startActivity(intent);
+            finish();
+        });
     }
 
     private void loadData() {
         listData = new ArrayList<>();
         Cursor cursor = dbManagerr.getAllData();
-        while (cursor.moveToNext()) {
-            String nama = cursor.getString(1);
-            String nominal = cursor.getString(3);
-            String pesan = cursor.getString(5);
 
-            if (pesan == null || pesan.isEmpty()) {
-                pesan = "(Tidak ada pesan)";
+        if (cursor != null) {
+            while (cursor.moveToNext()) {
+                String nama = cursor.getString(1);
+                String nominal = cursor.getString(3);
+                String pesan = cursor.getString(5);
+
+                if (pesan == null || pesan.isEmpty()) {
+                    pesan = "(Tidak ada pesan)";
+                }
+
+                listData.add(nama + " - Rp" + nominal + "\nPesan: " + pesan);
             }
-
-            listData.add(nama + " - Rp" + nominal + "\nPesan: " + pesan);
+            cursor.close(); // Pastikan cursor ditutup untuk menghindari memory leak
         }
+
         adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, listData);
         listDonasi.setAdapter(adapter);
     }
-
-
 
     private void clearFields() {
         edtNama.setText("");

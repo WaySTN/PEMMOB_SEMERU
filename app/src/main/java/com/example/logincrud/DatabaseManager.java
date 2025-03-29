@@ -56,7 +56,7 @@ public class DatabaseManager extends SQLiteOpenHelper {
             values.put(COLUMN_USERNAME, username);
             values.put(COLUMN_EMAIL, email);
             values.put(COLUMN_PHONE, phone);
-            values.put(COLUMN_PASSWORD, password); // Sebaiknya gunakan enkripsi untuk keamanan.
+            values.put(COLUMN_PASSWORD, password);
 
             result = db.insert(TABLE_USERS, null, values);
             Log.d("DATABASE", "Insert User Result: " + result);
@@ -98,6 +98,27 @@ public class DatabaseManager extends SQLiteOpenHelper {
         return db.rawQuery("SELECT * FROM " + TABLE_USERS + " WHERE " + COLUMN_EMAIL + " = ? AND " + COLUMN_PASSWORD + " = ?",
                 new String[]{email, password});
     }
+    // **Metode untuk Memperbarui Password**
+    public boolean updatePassword(String email, String newPassword) {
+        SQLiteDatabase db = null;
+        boolean success = false;
+
+        try {
+            db = this.getWritableDatabase();
+            ContentValues values = new ContentValues();
+            values.put(COLUMN_PASSWORD, newPassword);
+
+            int rowsAffected = db.update(TABLE_USERS, values, COLUMN_EMAIL + " = ?", new String[]{email});
+            success = rowsAffected > 0;
+        } catch (Exception e) {
+            Log.e("DB_ERROR", "Error updating password: " + e.getMessage());
+        } finally {
+            if (db != null) db.close();
+        }
+
+        return success;
+    }
+
 }
 
 

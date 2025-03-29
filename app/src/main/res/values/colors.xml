@@ -3,4 +3,8 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="blue">#2196F3</color>
+    <color name="colorPrimary">#FF5733</color> <!-- Ganti dengan warna yang diinginkan -->
+    <color name="colorPrimaryVariant">#C70039</color>
+    <color name="colorOnPrimary">#FFFFFF</color> <!-- Warna teks di atas Action Bar -->
+
 </resources>
